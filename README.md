@@ -87,12 +87,6 @@ WHERE c.CustomerID = 1
 GROUP BY c.CustomerID, c.FirstName, c.LastName;
 ```
 
----
-
-```
-
----
-
 ## 🧾 Conclusion
 
 Through this project, we investigated the complexities involved in managing customer bookings, service coordination, and travel agency logistics. We focused on developing a robust relational database design tailored to modern travel needs and future scalability.
@@ -103,5 +97,4 @@ The system ensured data accuracy, minimized redundancy, and allowed for advanced
 
 Overall, the Travel Agency Management System serves as a scalable and efficient solution for digital transformation in the tourism and travel industry.
 
----
 
