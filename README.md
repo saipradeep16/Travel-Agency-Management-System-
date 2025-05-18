@@ -10,76 +10,98 @@ The Travel Agency Management System simplifies travel bookings by offering a use
 
 ---
 
-## 🧠 Features
+## 🛠️ Technologies Used
 
-- Unique booking ID for each reservation
-- Real-time inventory visibility for staff and customers
-- Centralized customer and provider management
-- Seamless status updates for bookings
-- Secure payment processing in USD
-- English as the primary transaction language
-- Support for sustainable and responsible travel planning
-
----
-
-## 🎯 Objectives
-
-- Guarantee easy and customized travel experiences
-- Forecast and plan future travel trends
-- Prevent overbooking and underbooking
-- Optimize inventory utilization and profitability
-- Maintain operational transparency and data security
-
----
-
-## 🛠️ Technology Stack
-
-- **Database**: MySQL
-- **Query Language**: SQL
+- **Database**: MySQL  
+- **Language**: SQL  
 - **Tools**: MySQL Workbench, ER Diagrams
 
 ---
 
-## 🗃️ Core Database Tables
+## 🧠 Features
 
-- `Customers`
-- `Bookings`
-- `Services`
-- `Destinations`
-- `Accommodations`
+- Unique booking ID for each reservation  
+- Real-time inventory tracking for destinations, services, and accommodations  
+- Role-based access for staff to manage reservations and services  
+- Support for secure payments in USD  
+- Organized data for analytics and reporting  
+- English as the primary language for operations and transactions  
+
+---
+
+## 📂 Database Tables
+
+- `Customers`  
+- `Bookings`  
+- `Services`  
+- `Destinations`  
+- `Accommodations`  
 - `Providers`
 
 ---
 
 ## 💻 SQL Query Examples
 
+### 1️⃣ List all Confirmed Bookings
 ```sql
--- 1. List all Confirmed Bookings
 SELECT BookingID, CustomerID, BookingDate, PaymentAmount
 FROM Bookings
 WHERE Status = 'Confirmed';
+```
 
--- 2. Bookings with Payment Above a Certain Amount
+---
+
+### 2️⃣ Bookings with Payment Above a Certain Amount
+```sql
 SELECT BookingID, CustomerID, BookingDate, PaymentAmount
 FROM Bookings
 WHERE PaymentAmount > 400;
+```
 
--- 3. Services Provided by a Specific Provider (ProviderID = 1)
+---
+
+### 3️⃣ Services Provided by a Specific Provider
+```sql
 SELECT ServiceID, ServiceType, Description, Price
 FROM Services
 WHERE ProviderID = 1;
+```
 
--- 4. Accommodations at a Specific Destination (DestinationID = 1)
+---
+
+### 4️⃣ Accommodations at a Specific Destination
+```sql
 SELECT a.AccommodationID, a.Name, a.MaxCapacity
 FROM Accommodations a
 WHERE a.DestinationID = 1;
+```
 
--- 5. Total Payment Made by a Specific Customer (CustomerID = 1)
+---
+
+### 5️⃣ Total Payment Made by a Specific Customer
+```sql
 SELECT c.CustomerID, c.FirstName, c.LastName, SUM(b.PaymentAmount) as TotalPayment
 FROM Customers c
 JOIN Bookings b ON c.CustomerID = b.CustomerID
 WHERE c.CustomerID = 1
 GROUP BY c.CustomerID, c.FirstName, c.LastName;
+```
 
--- 6. Retrieve all Services from Services Table
-SELECT * FROM Services;
+---
+
+```
+
+---
+
+## 🧾 Conclusion
+
+Through this project, we investigated the complexities involved in managing customer bookings, service coordination, and travel agency logistics. We focused on developing a robust relational database design tailored to modern travel needs and future scalability.
+
+The project demonstrated that a properly structured relational database can efficiently manage key aspects of a travel agency — from customers and bookings to services and providers. By implementing SQL queries, we were able to retrieve valuable insights such as booking statuses, payment summaries, and service availability, enabling data-driven decision-making and efficient operations.
+
+The system ensured data accuracy, minimized redundancy, and allowed for advanced query execution through the use of primary and foreign keys. It has the potential to integrate with external systems like airline APIs and be extended with machine learning capabilities to predict customer preferences and demand trends.
+
+Overall, the Travel Agency Management System serves as a scalable and efficient solution for digital transformation in the tourism and travel industry.
+
+---
+
